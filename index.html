@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Nupuii 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        color: white;
+    }
+
+    .page {
+        display: none;
+        max-width: 90%;
+        z-index: 2;
+    }
+
+    .active {
+        display: block;
+    }
+
+    h1 {
+        font-size: 2.4em;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+
+    button {
+        padding: 15px 35px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        background-color: #ff4d6d;
+        color: white;
+        transition: transform 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+
+    #noBtn {
+        position: absolute;
+    }
+
+    /* PHOTO TEMPLATE */
+    .photos {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 15px;
+        background: rgba(255,255,255,0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    /* FLOATING HEARTS */
+    .heart {
+        position: absolute;
+        bottom: -20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-110vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>Will you be my Valentine, Nupuii? 💘</h1>
+    <button onclick="goTo('page2')">Yes 💕</button>
+    <button onclick="goTo('page2')">Yes 💖</button><br>
+    <button id="noBtn">No 🙃</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>YAYYYY 🥰💞</h1>
+    <p>I knew it 😌😉</p>
+    <button onclick="goTo('page3')">Click for gifts 🎁</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>Your Gifts 💝</h1>
+    <button onclick="goTo('poem')">A Poem 🌸</button>
+    <button onclick="goTo('letter')">A Love Letter 💌</button>
+    <button onclick="goTo('photos')">Our Moments 📸</button>
+    <button onclick="goTo('final')">One last thing 💖</button>
+</div>
+
+<!-- POEM -->
+<div class="page" id="poem">
+    <h1>Ka Hmeltha Naute 🌷</h1>
+    <p>
+        Of all the stars that light the night,<br>
+        You shine the warmest, soft and bright.<br><br>
+        The loveliest girl I’ve ever met,<br>
+        My favorite “yes” I’ll never regret.<br><br>
+        And no matter distance, space, or time,<br>
+        My heart will always search for only you that's mine 💖
+    </p>
+    <button onclick="goTo('page3')">Back 🎀</button>
+</div>
+
+<!-- LETTER -->
+<div class="page" id="letter">
+    <h1>My Love 💌</h1>
+    <p>
+        Nupuii,<br><br>
+        Nang hi ka nun-a thil pawimawh ber i ni.
+        Ni tin i awm avangin ka lung a hlim zawk a,
+        I kianga ka awm hian ka hahdam zawk.
+
+        Distance pawh kan awm hian,
+        ka thinlung chuan nang a thlen zel.
+        I awm loh chuan ka ni chu a famkim lo.
+
+        Ka hmangaih Lutuk che,
+        i bulah ka awm hi ka lawm em em a ni.
+        Happy Valentine's Day Ka naute. 💖
+    </p>
+    <button onclick="goTo('page3')">Back 🎀</button>
+</div>
+
+<!-- PHOTOS -->
+<div class="page" id="photos">
+    <h1>Our Moments 📸</h1>
+    <p>(You can add photos later — distance doesn’t change how special these are 💕)</p>
+    <div class="photos">
+        <!-- Replace the text with <img src="photo1.jpg"> later -->
+        <div class="photo"><img src="IMG-20241208-WA0017.jpg" alt="You 💖"></div>
+        <div class="photo"><img src="IMG-20241208-WA0015.jpg" alt="Me 💕"></div>
+        <div class="photo"><img src="IMG_20260202_040330.jpg" alt="Us 💖"></div>
+    </div>
+    <button onclick="goTo('page3')">Back 🎀</button>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="final">
+    <h1>Ka hmangaih lutuk che, Nupuii 💖</h1>
+    <p>
+        No matter how far apart we are,<br>
+        no matter how many time passes by,<br><br>
+        My heart will always continue to be yours,only yours<br>
+        Ka hmangaih reng ang che.
+    </p>
+    <button onclick="goTo('page3')">Back 🎀</button>
+</div>
+
+<script>
+    function goTo(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    // Sneaky NO button
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+        noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+        noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    });
+
+    // Floating hearts
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 15 + 15 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }, 400);
+</script>
+
+</body>
+</html>
